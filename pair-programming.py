@@ -18,7 +18,7 @@ def convert_to_meters(feet, inches):
     meters = total_inches * 0.0254
     return meters
 
-# Example usage:
+### Example usage:
 feet = 5
 inches = 3
 print(f"{feet} feet and {inches} inches is equal to {convert_to_meters(feet, inches)} meters.")
