@@ -1,40 +1,27 @@
-import numpy as np
-
-# TASK PROMPT: Offsets the mean of a given array to match a given value
-def offsetMean(arr, target_mean):
-
-    # calculate the current mean of the given array
-    current_mean = np.mean(arr)
-
-    # calculate the offset needed to match the target mean
-    offset_value = target_mean - current_mean
+def convert_to_meter(feet, inches):
+    """
+    Convert measurements in feet and inches to meters.
     
-    # offset each element in the array using vectorized operations
-    offset_arr = arr + offset_value
+    Parameters:
+    feet (int, float): The feet part of the measurement.
+    inches (int, float): The inches part of the measurement.
+    
+    Returns:
+    float: The measurement in meters.
+    
+    Example:
+    >>> convert_to_meters(5, 3)
+    1.6002
+    """
+    
+    total_inches = 12 * feet + inches
+    meters = total_inches * 0.0254
+    return meters
 
-    return offset_arr
+# Example usage:
+feet = 5
+inches = 3
+print(f"{feet} feet and {inches} inches is equal to {convert_to_meter(feet, inches)} meters.")
 
-'''
-Feedback:
-- The function is well-documented with clear explanations of its purpose, parameters, and return value.
-- Good use of vectorized operations for efficiency.
-
-Possible Improvements:
-- Include "import numpy as np" as I added to the above code. 
-- Include the ability to input float arrays. 
-- Consider adding an example in the documentation to demonstrate usage as I have done below.
-'''
-
-
-# Example array and target mean
-my_array = np.array([1, 2, 3, 4, 5])
-target_mean = 5
-
-# Call the function with my_array and target_mean
-adjusted_array = offsetMean(my_array, target_mean)
-
-print("Original array:", my_array)
-print("Adjusted array:", adjusted_array)
-print("New mean of the array:", np.mean(adjusted_array))
 
 
